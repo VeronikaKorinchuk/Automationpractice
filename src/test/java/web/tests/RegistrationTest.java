@@ -2,7 +2,7 @@ package web.tests;
 
 import org.testng.annotations.Test;
 import web.models.AccountFormFactory;
-import web.pages.AuthenticationPage;
+import web.pages.CreateAccountPage;
 import static org.testng.Assert.assertTrue;
 
 public class RegistrationTest extends BaseTest {
@@ -11,8 +11,8 @@ public class RegistrationTest extends BaseTest {
 
     @Test
     public void testCreateAccountSucceeded() {
-        AuthenticationPage authenticationPage = new AuthenticationPage(driver);
-        boolean isVisible = authenticationPage.
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        boolean isVisible = createAccountPage.
                                             open().
                                             fillEmail(EMAIL).
                                             clickCreateAccount().

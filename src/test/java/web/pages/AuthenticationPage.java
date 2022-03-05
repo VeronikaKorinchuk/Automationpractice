@@ -4,20 +4,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class AuthenticationPage extends BasePage {
+public class AuthenticationPage extends BasePage{
 
     public static String LOGIN_URL = "index.php?controller=authentication&back=my-account";
 
-    @FindBy(id = "email_create")
+    @FindBy(id = "email")
     private WebElement emailInput;
 
-    @FindBy(id = "SubmitCreate")
-    private WebElement createButton;
+    @FindBy(id = "passwd")
+    private WebElement passwordInput;
 
-    @FindBy(id = "account-creation_form")
-    private WebElement registrationForm;
+    @FindBy(id = "SubmitLogin")
+    private WebElement signInButton;
 
     public AuthenticationPage(WebDriver driver) {
         super(driver);
@@ -35,9 +34,19 @@ public class AuthenticationPage extends BasePage {
         return this;
     }
 
-    public RegistrationPage clickCreateAccount() {
-        createButton.click();
-        wait.until(ExpectedConditions.visibilityOf(registrationForm));
-        return new RegistrationPage(driver);
+    public AuthenticationPage fillPassword(String password) {
+        passwordInput.sendKeys(password);
+        return this;
+    }
+
+    public AccountPage signIn() {
+        signInButton.click();
+        return new AccountPage(driver);
+    }
+
+    public AccountPage login(String email, String password) {
+        return fillEmail(email).
+                fillPassword(password).
+                signIn();
     }
 }

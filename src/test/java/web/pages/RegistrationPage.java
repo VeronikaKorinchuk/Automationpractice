@@ -9,40 +9,40 @@ import web.models.AccountForm;
 public class RegistrationPage extends BasePage{
 
     @FindBy(id = "customer_firstname")
-    private WebElement customerFirstName;
+    private WebElement customerFirstNameInput;
 
     @FindBy(id = "customer_lastname")
-    private WebElement customerLastName;
+    private WebElement customerLastNameInput;
 
     @FindBy(id = "passwd")
-    private WebElement password;
+    private WebElement passwordInput;
 
     @FindBy(id = "firstname")
-    private WebElement firstName;
+    private WebElement firstNameInput;
 
     @FindBy(id = "lastname")
-    private WebElement lastName;
+    private WebElement lastNameInput;
 
     @FindBy(id = "address1")
-    private WebElement address;
+    private WebElement addressInput;
 
     @FindBy(id = "city")
-    private WebElement city;
+    private WebElement cityInput;
 
     @FindBy(id = "id_state")
-    private WebElement state;
+    private WebElement stateInput;
 
     @FindBy(id = "postcode")
-    private WebElement zipCode;
+    private WebElement zipCodeInput;
 
     @FindBy(id = "phone_mobile")
-    private WebElement mobilePhone;
+    private WebElement mobilePhoneInput;
 
     @FindBy(id = "alias")
-    private WebElement addressAlias;
+    private WebElement addressAliasInput;
 
     @FindBy(id = "submitAccount")
-    private WebElement submitRegisterForm;
+    private WebElement submitRegisterFormButton;
 
     public RegistrationPage(WebDriver driver) {
         super(driver);
@@ -55,22 +55,22 @@ public class RegistrationPage extends BasePage{
     }
 
     public RegistrationPage fillNecessaryRegistrationInformation(AccountForm accountForm) {
-        customerFirstName.sendKeys(accountForm.getCustomerFirstName());
-        customerLastName.sendKeys(accountForm.getCustomerLastName());
-        password.sendKeys(accountForm.getPassword());
-        firstName.sendKeys(accountForm.getOfficialFirstName());
-        lastName.sendKeys(accountForm.getOfficialLastName());
-        address.sendKeys(accountForm.getAddress());
-        city.sendKeys(accountForm.getCity());
-        state.sendKeys(accountForm.getState());
-        zipCode.sendKeys(accountForm.getZipCode());
-        mobilePhone.sendKeys(accountForm.getMobilePhone());
-        addressAlias.sendKeys(accountForm.getAddressAlias());
+        customerFirstNameInput.sendKeys(accountForm.getCustomerFirstName());
+        customerLastNameInput.sendKeys(accountForm.getCustomerLastName());
+        passwordInput.sendKeys(accountForm.getPassword());
+        firstNameInput.sendKeys(accountForm.getOfficialFirstName());
+        lastNameInput.sendKeys(accountForm.getOfficialLastName());
+        addressInput.sendKeys(accountForm.getAddress());
+        cityInput.sendKeys(accountForm.getCity());
+        stateInput.sendKeys(accountForm.getState());
+        zipCodeInput.sendKeys(accountForm.getZipCode());
+        mobilePhoneInput.sendKeys(accountForm.getMobilePhone());
+        addressAliasInput.sendKeys(accountForm.getAddressAlias());
         return this;
     }
 
     public AccountPage registerNewAccount() {
-        submitRegisterForm.click();
+        submitRegisterFormButton.click();
         return new AccountPage(driver);
     }
 }

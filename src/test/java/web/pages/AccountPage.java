@@ -12,6 +12,9 @@ public class AccountPage extends BasePage{
     @FindBy(css = "[title='View my customer account']")
     private WebElement accountIcon;
 
+    @FindBy(css = ".lnk_wishlist")
+    private WebElement myWishlistButton;
+
     public AccountPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
@@ -25,6 +28,11 @@ public class AccountPage extends BasePage{
 
     public boolean isAccountIconVisible() {
         return accountIcon.isDisplayed();
+    }
+
+    public WishlistPage openWishlists() {
+        myWishlistButton.click();
+        return new WishlistPage(driver);
     }
 
 }

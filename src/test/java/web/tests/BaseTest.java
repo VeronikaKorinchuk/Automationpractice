@@ -15,9 +15,9 @@ public class BaseTest {
         driver = driverFactory.getDriver();
     }
 
-//    @AfterClass
-//    public void tearDown() {
-//        driver.close();
-//    }
+    @AfterClass
+    public void tearDown() {
+        driver.close();
+    }
 
 }

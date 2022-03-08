@@ -6,9 +6,6 @@ import static org.testng.Assert.assertTrue;
 
 public class AuthenticationTest extends BaseTest{
 
-    public static final String EMAIL = "testAccount2102@yandex.by";
-    public static final String PASSWORD = "password2102";
-
     @Test
     public void testLoginSucceeded() {
         AuthenticationPage authenticationPage = new AuthenticationPage(driver);

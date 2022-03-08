@@ -10,8 +10,6 @@ import static org.testng.Assert.assertTrue;
 
 public class CartTest extends BaseTest {
 
-    public static final String EMAIL = "testAccount2102@yandex.by";
-    public static final String PASSWORD = "password2102";
     public static final String FIRST_PURCHASED_PRODUCT = "Printed Chiffon Dress";
     public static final String SECOND_PURCHASED_PRODUCT = "Faded Short Sleeve T-shirts";
     public static final String THIRD_PURCHASED_PRODUCT = "Blouse";

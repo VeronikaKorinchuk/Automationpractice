@@ -8,8 +8,6 @@ import static org.testng.Assert.*;
 
 public class WishlistTest extends BaseTest{
 
-    public static final String EMAIL = "testAccount2102@yandex.by";
-    public static final String PASSWORD = "password2102";
     public static final String BESTSELLER_NAME = "Faded Short Sleeve T-shirts";
     public static final String NEW_WISHLIST_NAME = "Clothes wishlist";
 

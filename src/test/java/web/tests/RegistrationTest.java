@@ -7,8 +7,6 @@ import static org.testng.Assert.assertTrue;
 
 public class RegistrationTest extends BaseTest {
 
-    public static final String EMAIL = "testAccount2302@yandex.by";
-
     @Test
     public void testCreateAccountSucceeded() {
         CreateAccountPage createAccountPage = new CreateAccountPage(driver);

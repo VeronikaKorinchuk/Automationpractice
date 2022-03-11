@@ -1,9 +1,8 @@
-package web.tests;
+package com.coherentsolutions.korinchuk.lab.java.web.tests;
 
+import com.coherentsolutions.korinchuk.lab.java.web.pages.WishlistPage;
 import org.testng.annotations.Test;
-import web.pages.AuthenticationPage;
-import web.pages.WishlistPage;
-
+import com.coherentsolutions.korinchuk.lab.java.web.pages.AuthenticationPage;
 import static org.testng.Assert.*;
 
 public class WishlistTest extends BaseTest{

@@ -1,4 +1,4 @@
-package web.utils;
+package com.coherentsolutions.korinchuk.lab.java.web.utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;

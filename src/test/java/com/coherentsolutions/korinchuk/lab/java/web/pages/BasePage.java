@@ -1,8 +1,8 @@
-package web.pages;
+package com.coherentsolutions.korinchuk.lab.java.web.pages;
 
+import com.coherentsolutions.korinchuk.lab.java.web.utils.PropertyReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import web.utils.PropertyReader;
 
 public abstract class BasePage {
 

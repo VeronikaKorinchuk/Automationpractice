@@ -1,10 +1,10 @@
-package web.pages;
+package com.coherentsolutions.korinchuk.lab.java.web.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import web.models.AccountForm;
+import com.coherentsolutions.korinchuk.lab.java.web.models.AccountForm;
 
 public class RegistrationPage extends BasePage{
 

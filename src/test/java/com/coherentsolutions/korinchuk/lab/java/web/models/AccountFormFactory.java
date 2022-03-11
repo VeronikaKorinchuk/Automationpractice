@@ -1,4 +1,4 @@
-package web.models;
+package com.coherentsolutions.korinchuk.lab.java.web.models;
 
 import com.github.javafaker.Faker;
 

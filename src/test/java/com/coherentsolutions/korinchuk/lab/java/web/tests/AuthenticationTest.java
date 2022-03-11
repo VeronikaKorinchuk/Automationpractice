@@ -1,7 +1,7 @@
-package web.tests;
+package com.coherentsolutions.korinchuk.lab.java.web.tests;
 
 import org.testng.annotations.Test;
-import web.pages.AuthenticationPage;
+import com.coherentsolutions.korinchuk.lab.java.web.pages.AuthenticationPage;
 import static org.testng.Assert.assertTrue;
 
 public class AuthenticationTest extends BaseTest{

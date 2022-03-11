@@ -1,4 +1,4 @@
-package web.models;
+package com.coherentsolutions.korinchuk.lab.java.web.models;
 
 public class AccountForm {
 

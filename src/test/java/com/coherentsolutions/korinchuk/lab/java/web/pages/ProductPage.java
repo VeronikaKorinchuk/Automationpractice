@@ -1,4 +1,4 @@
-package web.pages;
+package com.coherentsolutions.korinchuk.lab.java.web.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

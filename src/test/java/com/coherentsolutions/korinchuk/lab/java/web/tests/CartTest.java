@@ -1,10 +1,10 @@
-package web.tests;
+package com.coherentsolutions.korinchuk.lab.java.web.tests;
 
+import com.coherentsolutions.korinchuk.lab.java.web.pages.CartPage;
+import com.coherentsolutions.korinchuk.lab.java.web.pages.WishlistPage;
 import org.testng.annotations.Test;
-import web.pages.AuthenticationPage;
-import web.pages.CartPage;
-import web.pages.ProductPage;
-import web.pages.WishlistPage;
+import com.coherentsolutions.korinchuk.lab.java.web.pages.AuthenticationPage;
+import com.coherentsolutions.korinchuk.lab.java.web.pages.ProductPage;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 

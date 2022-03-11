@@ -8,7 +8,7 @@ public abstract class BasePage {
 
     protected WebDriver driver;
     protected WebDriverWait wait;
-    protected static final String BASE_URL = new PropertyReader().getProperty("base.url");
+    protected static final String BASE_URL = PropertyReader.getInstance().getProperty("base.url");
 
     public BasePage(WebDriver driver) {
         this.driver = driver;

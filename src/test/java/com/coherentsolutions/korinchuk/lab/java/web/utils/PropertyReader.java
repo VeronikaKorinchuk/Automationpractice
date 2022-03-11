@@ -2,15 +2,27 @@ package com.coherentsolutions.korinchuk.lab.java.web.utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Properties;
+import java.util.*;
 
 public class PropertyReader {
 
     private static final String PROPERTIES_PATH = "src/test/resources/config.properties";
     private Properties property;
     private FileInputStream propertiesFolder;
+    private static PropertyReader propertyReader;
 
-    public Properties loadProperties() {
+    private PropertyReader() {
+        loadProperties();
+    }
+
+    public static PropertyReader getInstance() {
+        if (propertyReader == null) {
+            propertyReader = new PropertyReader();
+        }
+        return propertyReader;
+    }
+
+    public void loadProperties() {
         try {
             property = new Properties();
             propertiesFolder = new FileInputStream(PROPERTIES_PATH);
@@ -18,10 +30,9 @@ public class PropertyReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return property;
     }
 
     public String getProperty(String propertyName) {
-        return loadProperties().getProperty(propertyName);
+        return property.getProperty(propertyName);
     }
 }

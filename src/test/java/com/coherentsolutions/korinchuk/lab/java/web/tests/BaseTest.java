@@ -10,8 +10,8 @@ public class BaseTest {
 
     protected  DriverFactory driverFactory;
     protected WebDriver driver;
-    public static final String EMAIL = new PropertyReader().getProperty("base.email");
-    public static final String PASSWORD = new PropertyReader().getProperty("base.password");
+    public static final String EMAIL = PropertyReader.getInstance().getProperty("base.email");
+    public static final String PASSWORD = PropertyReader.getInstance().getProperty("base.password");
 
     @BeforeClass
     public void setUp() {

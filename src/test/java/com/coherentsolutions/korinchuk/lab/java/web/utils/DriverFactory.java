@@ -26,6 +26,10 @@ public class DriverFactory {
         return driver;
     }
 
+    public static ThreadLocal<WebDriver> getDrivers() {
+        return drivers;
+    }
+
     public static Capabilities getDriverCapabilities() {
         return ((RemoteWebDriver) drivers.get()).getCapabilities();
     }

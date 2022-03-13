@@ -50,7 +50,8 @@ public class DriverFactory {
 
     @Attachment(value = "Browser information", type = "txt")
     public static String browserInformation() {
-        return new Date() + getPlatform() + getBrowserName() + getBrowserVersion();
+        return new Date() + "\n" + "Platform name: " + getPlatform() + "\n" + "Browser name: " +  getBrowserName() +
+                "\n" + "Browser version: " + getBrowserVersion();
     }
 
     public void removeDriver() {

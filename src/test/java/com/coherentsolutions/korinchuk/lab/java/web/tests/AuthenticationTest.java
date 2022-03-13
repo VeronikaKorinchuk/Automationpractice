@@ -6,7 +6,7 @@ import static org.testng.Assert.assertTrue;
 
 public class AuthenticationTest extends BaseTest{
 
-    @Test
+    @Test(description = "Test that login with right credentials succeeded")
     public void testLoginSucceeded() {
         AuthenticationPage authenticationPage = new AuthenticationPage(driver);
         boolean isVisible = authenticationPage.

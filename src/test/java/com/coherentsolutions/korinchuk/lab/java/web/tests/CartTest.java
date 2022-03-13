@@ -14,7 +14,7 @@ public class CartTest extends BaseTest {
     public static final String SECOND_PURCHASED_PRODUCT = "Faded Short Sleeve T-shirts";
     public static final String THIRD_PURCHASED_PRODUCT = "Blouse";
 
-    @Test
+    @Test(description = "Test ability to add to cart and total price")
     public void testAbilityAddToCartSucceeded() {
         AuthenticationPage authenticationPage = new AuthenticationPage(driver);
         WishlistPage wishlistPage = authenticationPage.

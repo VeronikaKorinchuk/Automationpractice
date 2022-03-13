@@ -10,7 +10,7 @@ public class WishlistTest extends BaseTest{
     public static final String BESTSELLER_NAME = "Faded Short Sleeve T-shirts";
     public static final String NEW_WISHLIST_NAME = "Clothes wishlist";
 
-    @Test
+    @Test(description = "Test ability to add auto-created wishlist succeeded")
     public void testAddAutoCreatedWishlistSucceeded() {
         AuthenticationPage authenticationPage = new AuthenticationPage(driver);
         WishlistPage wishlistPage = authenticationPage.
@@ -29,7 +29,7 @@ public class WishlistTest extends BaseTest{
         assertEquals(wishlistQuantityAfterAdding, 1, "Product isn't added to wishlist");
     }
 
-    @Test
+    @Test(description = "Test the ability to add to wishlist succeeded")
     public void testAbilityToAddToWishlistSucceeded() {
         AuthenticationPage authenticationPage = new AuthenticationPage(driver);
         WishlistPage wishlistPage = authenticationPage.

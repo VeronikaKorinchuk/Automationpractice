@@ -8,7 +8,7 @@ import static org.testng.Assert.assertTrue;
 
 public class RegistrationTest extends BaseTest {
 
-    @Test
+    @Test(description = "Test that create account succeeded")
     public void testCreateAccountSucceeded() {
         CreateAccountPage createAccountPage = new CreateAccountPage(driver);
         boolean isVisible = createAccountPage.

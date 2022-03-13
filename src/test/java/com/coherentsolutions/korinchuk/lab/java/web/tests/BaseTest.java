@@ -17,14 +17,12 @@ public class BaseTest {
     public static final String EMAIL = PropertyReader.getInstance().getProperty("base.email");
     public static final String PASSWORD = PropertyReader.getInstance().getProperty("base.password");
 
-    @Step(value = "Init browser")
     @BeforeClass
     public void setUp() {
         driverFactory = new DriverFactory();
         driver = driverFactory.getDriver();
     }
 
-    @Step(value = "Close browser")
     @AfterClass
     public void tearDown() {
         driverFactory.removeDriver();

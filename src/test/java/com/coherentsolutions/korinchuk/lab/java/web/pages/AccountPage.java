@@ -1,5 +1,6 @@
 package com.coherentsolutions.korinchuk.lab.java.web.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,6 +21,7 @@ public class AccountPage extends BasePage{
         PageFactory.initElements(driver, this);
     }
 
+    @Step(value = "Open account page")
     @Override
     public AccountPage open() {
         super.open(ACCOUNT_URL);
@@ -30,6 +32,7 @@ public class AccountPage extends BasePage{
         return accountIcon.isDisplayed();
     }
 
+    @Step(value = "Open wishlists")
     public WishlistPage openWishlists() {
         myWishlistButton.click();
         return new WishlistPage(driver);

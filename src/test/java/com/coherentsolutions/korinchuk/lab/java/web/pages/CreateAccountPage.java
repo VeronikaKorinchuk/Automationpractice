@@ -1,5 +1,6 @@
 package com.coherentsolutions.korinchuk.lab.java.web.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,17 +25,20 @@ public class CreateAccountPage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
+    @Step(value = "Open create account page")
     @Override
     public CreateAccountPage open() {
         super.open(LOGIN_URL);
         return this;
     }
 
+    @Step(value = "Fill email")
     public CreateAccountPage fillEmail(String email) {
         emailInput.sendKeys(email);
         return this;
     }
 
+    @Step(value = "Submit account creation")
     public RegistrationPage clickCreateAccount() {
         createButton.click();
         wait.until(ExpectedConditions.visibilityOf(registrationForm));

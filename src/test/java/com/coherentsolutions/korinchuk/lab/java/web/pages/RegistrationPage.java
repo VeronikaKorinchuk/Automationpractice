@@ -1,5 +1,6 @@
 package com.coherentsolutions.korinchuk.lab.java.web.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -54,6 +55,7 @@ public class RegistrationPage extends BasePage{
         return null;
     }
 
+    @Step(value = "Fill registration form")
     public RegistrationPage fillNecessaryRegistrationInformation(AccountForm accountForm) {
         customerFirstNameInput.sendKeys(accountForm.getCustomerFirstName());
         customerLastNameInput.sendKeys(accountForm.getCustomerLastName());
@@ -69,6 +71,7 @@ public class RegistrationPage extends BasePage{
         return this;
     }
 
+    @Step(value = "Submit registration")
     public AccountPage registerNewAccount() {
         submitRegisterFormButton.click();
         return new AccountPage(driver);

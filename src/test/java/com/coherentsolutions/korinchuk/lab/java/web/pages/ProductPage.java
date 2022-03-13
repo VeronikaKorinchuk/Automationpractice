@@ -1,5 +1,6 @@
 package com.coherentsolutions.korinchuk.lab.java.web.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,11 +30,13 @@ public class ProductPage extends BasePage {
         return null;
     }
 
+    @Step(value = "Add product to wishlist")
     public ProductPage addToWishlist() {
         addToWishlistButton.click();
         return this;
     }
 
+    @Step(value = "Add product to cart")
     public ProductPage addToCart() {
         addToCartButton.click();
         return this;

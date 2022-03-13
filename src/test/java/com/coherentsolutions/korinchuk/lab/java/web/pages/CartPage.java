@@ -1,5 +1,6 @@
 package com.coherentsolutions.korinchuk.lab.java.web.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,6 +20,7 @@ public class CartPage extends BasePage{
         PageFactory.initElements(driver, this);
     }
 
+    @Step(value = "Open cart page")
     @Override
     public CartPage open() {
         super.open(CART_PAGE_URL);

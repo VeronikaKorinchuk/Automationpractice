@@ -1,5 +1,6 @@
 package com.coherentsolutions.korinchuk.lab.java.web.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,6 +30,7 @@ public class WishlistPage extends BasePage{
         PageFactory.initElements(driver, this);
     }
 
+    @Step(value = "Open wishlist page")
     @Override
     public WishlistPage open() {
         super.open(WISHLIST_URL);
@@ -39,6 +41,7 @@ public class WishlistPage extends BasePage{
         return wishlistLine.size();
     }
 
+    @Step(value = "Open bestseller {0}")
     public ProductPage openBestseller(String bestsellerName) {
         driver.findElement(By.xpath(String.format(BESTSELLER_ITEM_LINK, bestsellerName))).click();
         return new ProductPage(driver);
@@ -54,11 +57,13 @@ public class WishlistPage extends BasePage{
         return this;
     }
 
+    @Step(value = "Create new wishlist {0}")
     public WishlistPage createNewWishlist(String newWishlistName) {
         return fillNewWishlistName(newWishlistName).
                 saveNewWishlist();
     }
 
+    @Step(value = "View wishlist products")
     public WishlistPage viewWishlistProducts(String wishlist) {
         driver.findElement(By.xpath(String.format(VIEW_WISHLIST_ITEMS_BUTTON, wishlist))).click();
         return this;

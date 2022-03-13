@@ -1,5 +1,6 @@
 package com.coherentsolutions.korinchuk.lab.java.web.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,6 +24,7 @@ public class AuthenticationPage extends BasePage{
         PageFactory.initElements(driver, this);
     }
 
+    @Step(value = "Open authentication page")
     @Override
     public AuthenticationPage open() {
         super.open(LOGIN_URL);
@@ -44,6 +46,7 @@ public class AuthenticationPage extends BasePage{
         return new AccountPage(driver);
     }
 
+    @Step(value = "Login")
     public AccountPage login(String email, String password) {
         return fillEmail(email).
                 fillPassword(password).

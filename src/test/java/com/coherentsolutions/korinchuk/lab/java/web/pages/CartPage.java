@@ -12,7 +12,7 @@ public class CartPage extends BasePage{
     private static final String CART_PAGE_URL = "index.php?controller=order";
     private static final String CART_ITEM = "//td[@class='cart_product']//img[contains(@alt, '%s')]";
 
-    @FindBy(id = "total_price")
+    @FindBy(id = "total_product")
     private WebElement totalPriceValue;
 
     public CartPage(WebDriver driver) {

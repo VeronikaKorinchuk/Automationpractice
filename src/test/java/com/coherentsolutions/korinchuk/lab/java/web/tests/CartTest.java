@@ -13,7 +13,6 @@ public class CartTest extends BaseTest {
     public static final String FIRST_PURCHASED_PRODUCT = "Printed Chiffon Dress";
     public static final String SECOND_PURCHASED_PRODUCT = "Faded Short Sleeve T-shirts";
     public static final String THIRD_PURCHASED_PRODUCT = "Blouse";
-    public static final int DELIVERY_COST = 2;
 
     @Test
     public void testAbilityAddToCartSucceeded() {
@@ -42,9 +41,9 @@ public class CartTest extends BaseTest {
         int thirdProductQuantity = firstProduct.getProductQuantity();
         thirdProduct.
                 addToCart();
-        double expectedTotal = (firstProductPrice*firstProductQuantity +
+        double expectedTotal = firstProductPrice*firstProductQuantity +
                 secondProductPrice*secondProductQuantity +
-                thirdProductPrice*thirdProductQuantity) + DELIVERY_COST;
+                thirdProductPrice*thirdProductQuantity;
 
         CartPage cartPage = new CartPage(driver);
         cartPage.

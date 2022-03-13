@@ -1,5 +1,6 @@
 package com.coherentsolutions.korinchuk.lab.java.web.utils;
 
+import io.qameta.allure.Attachment;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -44,9 +45,10 @@ public class DriverFactory {
     }
 
     public static String getPlatform() {
-        return (String)getDriverCapabilities().getCapability("platform");
+        return getDriverCapabilities().getCapability("platform").toString();
     }
 
+    @Attachment(value = "Browser information", type = "txt")
     public static String browserInformation() {
         return new Date() + getPlatform() + getBrowserName() + getBrowserVersion();
     }

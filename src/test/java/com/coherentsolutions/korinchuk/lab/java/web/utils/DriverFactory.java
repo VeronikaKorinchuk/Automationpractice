@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
@@ -44,6 +45,10 @@ public class DriverFactory {
 
     public static String getPlatform() {
         return (String)getDriverCapabilities().getCapability("platform");
+    }
+
+    public static String browserInformation() {
+        return new Date() + getPlatform() + getBrowserName() + getBrowserVersion();
     }
 
     public void removeDriver() {

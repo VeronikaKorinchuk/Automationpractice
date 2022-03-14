@@ -4,6 +4,7 @@ import io.qameta.allure.Attachment;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
@@ -14,23 +15,29 @@ import java.util.concurrent.TimeUnit;
 public class DriverFactory {
 
     protected static ThreadLocal<WebDriver> drivers;
+    private DesiredCapabilities capabilities;
 
     public WebDriver getDriver() throws MalformedURLException {
         drivers = new ThreadLocal<>();
         if (drivers.get() == null) {
-            drivers.set(createDriver("Run locally"));
+            drivers.set(createDriver("Saucelabs", "chrome"));
         }
         drivers.get().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         return drivers.get();
     }
 
-    public WebDriver createDriver(String testRunner) throws MalformedURLException {
+    public WebDriver createDriver(String testRunner, String browserName) throws MalformedURLException {
         WebDriver driver = null;
-        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+        setCapabilities(browserName);
         switch (testRunner) {
             case "Run locally":
-                System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-                driver = new ChromeDriver();
+                if (browserName.equals("chrome")) {
+                    System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+                    driver = new ChromeDriver();
+                } else if (browserName.equals("firefox")) {
+                    System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver.exe");
+                    driver = new FirefoxDriver();
+                }
                 break;
             case "Selenium grid":
                 driver = new RemoteWebDriver(new URL(PropertyReader.getInstance().getProperty("selenium.grid.url")), capabilities);
@@ -40,6 +47,11 @@ public class DriverFactory {
                 break;
         }
         return driver;
+    }
+
+    public void setCapabilities(String browserName) {
+        capabilities = new DesiredCapabilities();
+        capabilities.setBrowserName(browserName);
     }
 
     public static ThreadLocal<WebDriver> getDrivers() {

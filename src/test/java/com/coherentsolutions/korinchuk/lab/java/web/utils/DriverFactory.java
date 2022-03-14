@@ -20,7 +20,7 @@ public class DriverFactory {
     public WebDriver getDriver() throws MalformedURLException {
         drivers = new ThreadLocal<>();
         if (drivers.get() == null) {
-            drivers.set(createDriver("Saucelabs", "chrome"));
+            drivers.set(createDriver("Run remote", "chrome"));
         }
         drivers.get().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         return drivers.get();
@@ -39,14 +39,15 @@ public class DriverFactory {
                     driver = new FirefoxDriver();
                 }
                 break;
-            case "Selenium grid":
-                driver = new RemoteWebDriver(new URL(PropertyReader.getInstance().getProperty("selenium.grid.url")), capabilities);
-                break;
-            case "Saucelabs":
-                driver = new RemoteWebDriver(new URL(PropertyReader.getInstance().getProperty("saucelabs.url")), capabilities);
+            case "Run remote":
+                driver = new RemoteWebDriver(new URL(PropertyReader.getInstance().getProperty(String.format("remote.profile.%s", getRemoteProfile()))), capabilities);
                 break;
         }
         return driver;
+    }
+
+    public String getRemoteProfile() {
+        return PropertyReader.getInstance().getProperty("active.remote.profile");
     }
 
     public void setCapabilities(String browserName) {

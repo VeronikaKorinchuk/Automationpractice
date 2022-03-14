@@ -4,8 +4,10 @@ import io.qameta.allure.Attachment;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -13,18 +15,30 @@ public class DriverFactory {
 
     protected static ThreadLocal<WebDriver> drivers;
 
-    public WebDriver getDriver() {
+    public WebDriver getDriver() throws MalformedURLException {
         drivers = new ThreadLocal<>();
         if (drivers.get() == null) {
-            drivers.set(createDriver());
+            drivers.set(createDriver("Run locally"));
         }
         drivers.get().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         return drivers.get();
     }
 
-    public WebDriver createDriver() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-        WebDriver driver = new ChromeDriver(new ChromeOptions().addArguments("start-maximized"));
+    public WebDriver createDriver(String testRunner) throws MalformedURLException {
+        WebDriver driver = null;
+        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+        switch (testRunner) {
+            case "Run locally":
+                System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+                driver = new ChromeDriver();
+                break;
+            case "Selenium grid":
+                driver = new RemoteWebDriver(new URL(PropertyReader.getInstance().getProperty("selenium.grid.url")), capabilities);
+                break;
+            case "Saucelabs":
+                driver = new RemoteWebDriver(new URL(PropertyReader.getInstance().getProperty("saucelabs.url")), capabilities);
+                break;
+        }
         return driver;
     }
 

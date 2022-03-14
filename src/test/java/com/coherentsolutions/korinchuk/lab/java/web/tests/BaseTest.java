@@ -2,12 +2,12 @@ package com.coherentsolutions.korinchuk.lab.java.web.tests;
 
 import com.coherentsolutions.korinchuk.lab.java.web.utils.PropertyReader;
 import com.coherentsolutions.korinchuk.lab.java.web.utils.TestListener;
-import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import com.coherentsolutions.korinchuk.lab.java.web.utils.DriverFactory;
 import org.testng.annotations.Listeners;
+import java.net.MalformedURLException;
 
 @Listeners(TestListener.class)
 public class BaseTest {
@@ -18,7 +18,7 @@ public class BaseTest {
     public static final String PASSWORD = PropertyReader.getInstance().getProperty("base.password");
 
     @BeforeClass
-    public void setUp() {
+    public void setUp() throws MalformedURLException {
         driverFactory = new DriverFactory();
         driver = driverFactory.getDriver();
     }

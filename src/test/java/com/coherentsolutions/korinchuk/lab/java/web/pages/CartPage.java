@@ -1,6 +1,7 @@
 package com.coherentsolutions.korinchuk.lab.java.web.pages;
 
 import io.qameta.allure.Step;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CartPage extends BasePage{
 
+    static Logger logger = Logger.getLogger(CartPage.class);
     private static final String CART_PAGE_URL = "index.php?controller=order";
     private static final String CART_ITEM = "//td[@class='cart_product']//img[contains(@alt, '%s')]";
 
@@ -23,6 +25,7 @@ public class CartPage extends BasePage{
     @Step(value = "Open cart page")
     @Override
     public CartPage open() {
+        logger.info("Open page");
         super.open(CART_PAGE_URL);
         return this;
     }

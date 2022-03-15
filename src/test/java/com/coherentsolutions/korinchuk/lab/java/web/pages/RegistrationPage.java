@@ -1,6 +1,7 @@
 package com.coherentsolutions.korinchuk.lab.java.web.pages;
 
 import io.qameta.allure.Step;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,6 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 import com.coherentsolutions.korinchuk.lab.java.web.models.AccountForm;
 
 public class RegistrationPage extends BasePage{
+
+    static Logger logger = Logger.getLogger(RegistrationPage.class);
 
     @FindBy(id = "customer_firstname")
     private WebElement customerFirstNameInput;
@@ -57,6 +60,7 @@ public class RegistrationPage extends BasePage{
 
     @Step(value = "Fill registration form")
     public RegistrationPage fillNecessaryRegistrationInformation(AccountForm accountForm) {
+        logger.info("Filling registration fields");
         customerFirstNameInput.sendKeys(accountForm.getCustomerFirstName());
         customerLastNameInput.sendKeys(accountForm.getCustomerLastName());
         passwordInput.sendKeys(accountForm.getPassword());
@@ -73,6 +77,7 @@ public class RegistrationPage extends BasePage{
 
     @Step(value = "Submit registration")
     public AccountPage registerNewAccount() {
+        logger.info("Submit registration");
         submitRegisterFormButton.click();
         return new AccountPage(driver);
     }
